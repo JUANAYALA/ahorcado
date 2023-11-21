@@ -1,0 +1,68 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="bg-light rounded-2 py-5 px-4 px-md-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bolder">Ingresa Una Letra</h1>
+    </div>
+    <div class="text-center mb-5">
+        <h2>
+            {% for letra in info.palabra %}
+                    {% if letra in info.letras_adivinadas %}
+                        <strong>{{ letra }}</strong>
+                    {% else %}
+                        _ 
+                    {% endif %}
+            {% endfor %}
+        </h2>
+        <div class="text-center mb-5">
+            <h5>{{info.palabra|length}} LETRAS</h5>
+        </div>
+    </div>
+</div>
+
+<h5>Letras incorrectas: {{ info.letras_incorrectas }}</h5>
+
+<h5>Intentos restantes: {{ info.intentos_restantes }}</h5>
+
+
+<div class="row gx-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6">
+        <form method="post" action=".">
+            {% csrf_token %}
+            <div class="form-floating mb-3">
+                <input class="form-control" id="name" name="name" type="text" maxlength="1" data-sb-validations="required,name" required />
+            </div>
+            <div class="d-grid">
+                        
+                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Adivinar</button>
+            </div>
+            {% if info.intentos_restantes == 0  %}
+            <H2>Palabra Adivinar: {{ info.palabra }}</H2>
+               <script>                    
+                    // Después de (3 segundos), redirigir a la página de inicio
+                    setTimeout(function () {
+                        window.location.href = "{% url 'inicio' %}";
+                    }, 3000);
+                </script>
+            {% endif %}
+            {% if retornar %}
+               <script>                    
+                    // Después de (3 segundos), redirigir a la página de inicio
+                    setTimeout(function () {
+                        window.location.href = "{% url 'inicio' %}";
+                    }, 3000);
+                </script>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

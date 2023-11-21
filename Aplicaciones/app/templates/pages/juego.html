@@ -8,12 +8,12 @@
     {% endfor %}
 </ul>
 {% endif %}
-<div class="bg-light rounded-2 py-5 px-4 px-md-5">
+<div style="margin-top: 5%;">
     <div class="text-center mb-5">
         <h1 class="fw-bolder">Ingresa Una Letra</h1>
     </div>
     <div class="text-center mb-5">
-        <h2 style="text-transform: uppercase;">
+        <h3 style="text-transform: uppercase;">
             {% for letra in info.palabra %}
                     {% if letra in info.letras_adivinadas %}
                         <strong>{{ letra }}</strong>
@@ -21,7 +21,7 @@
                         _ 
                     {% endif %}
             {% endfor %}
-        </h2>
+        </h3>
         <div class="text-center mb-5">
             <h5>{{info.palabra|length}} LETRAS</h5>
         </div>

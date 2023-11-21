@@ -11552,6 +11552,7 @@ textarea.form-control-lg {
 body,
 html {
   height: 100%;
+  overflow: hidden;
 }
 
 .bg-gradient-primary-to-secondary {

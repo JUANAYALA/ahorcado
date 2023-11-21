@@ -43,7 +43,7 @@ def jugar(request, juego_letra):
             dup = {x for x in lista_letras if x in visited or (visited.add(x) or False)}
             # Validacion de si la palabra ya fue ingresada
             if letra_ingresada in dup:                   
-                messages.add_message(request=request, level=messages.INFO, message="LA LETRA {} YA FUE INGRESADA".format(letra_ingresada.upper()))
+                messages.add_message(request=request, level=messages.INFO, message="LA LETRA -> {} <- YA FUE INGRESADA".format(letra_ingresada.upper()))
             else:
                 pass  
                 

@@ -13,7 +13,7 @@
         <h1 class="fw-bolder">Ingresa Una Letra</h1>
     </div>
     <div class="text-center mb-5">
-        <h2>
+        <h2 style="text-transform: uppercase;">
             {% for letra in info.palabra %}
                     {% if letra in info.letras_adivinadas %}
                         <strong>{{ letra }}</strong>
@@ -28,9 +28,9 @@
     </div>
 </div>
 
-<h5>Letras incorrectas: {{ info.letras_incorrectas }}</h5>
+<h5 style="text-transform: uppercase;">Letras incorrectas: {{ info.letras_incorrectas }}</h5>
 
-<h5>Intentos restantes: {{ info.intentos_restantes }}</h5>
+<h5 style="text-transform: uppercase;">Intentos restantes: {{ info.intentos_restantes }}</h5>
 
 
 <div class="row gx-5 justify-content-center">
@@ -50,7 +50,7 @@
                     // Después de (3 segundos), redirigir a la página de inicio
                     setTimeout(function () {
                         window.location.href = "{% url 'inicio' %}";
-                    }, 3000);
+                    }, 4000);
                 </script>
             {% endif %}
             {% if retornar %}
@@ -58,7 +58,7 @@
                     // Después de (3 segundos), redirigir a la página de inicio
                     setTimeout(function () {
                         window.location.href = "{% url 'inicio' %}";
-                    }, 3000);
+                    }, 4000);
                 </script>
             {% endif %}
         </form>
